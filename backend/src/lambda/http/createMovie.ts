@@ -11,6 +11,17 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
   const split = authorization.split(' ')
   const jwtToken = split[1]
 
+  if (newMovie.name.length === 0){
+    return {
+      statusCode: 400,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true
+      },
+      body: JSON.stringify({})
+    }
+  }
+
   const newItem = await createMovie(newMovie, jwtToken)
 
   return {
