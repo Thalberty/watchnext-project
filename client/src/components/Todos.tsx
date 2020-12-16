@@ -57,7 +57,7 @@ export class Todos extends React.PureComponent<TodosProps, TodosState> {
       })
     } catch (e){
       console.log(e)
-      alert('Todo creation failed')
+      alert('WacthNext creation failed')
     }
   }
 
